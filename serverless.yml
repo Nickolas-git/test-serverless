@@ -1,0 +1,20 @@
+#Define a infraestrutura do ambiente, configurando a versão do serverless, qual a nuvem estamos utilizando
+#linguagem de programação e nossa função do endpoint
+service: test-serverless
+
+frameworkVersion: "3"
+
+provider: 
+  name: aws
+  runtime: python3.8
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: /hello/{meuinput}
+          method: get
+          cors: true
+
+      
